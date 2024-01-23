@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Article Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4 text-center">Article Generator</h1>
+
+            <!-- Form for input -->
+            <form id="articleForm">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="generateArticle()">Generate Article</button>
+            </form>
+
+            <!-- Output area -->
+            <div class="mt-4">
+                <h3>Generated Article:</h3>
+                <div id="output" class="border p-3 ">
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+  function generateArticle() {
+      // Get input values
+      var title = document.getElementById("title").value;
+      document.getElementById("output").innerHTML = "<p>Generating article... wait 45 seconds...</p><img src='/loading.gif' alt='' style='width: 20px;'>";
+
+      fetch('http://localhost:3000/', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title: title }),
+      })
+      .then(response => response.json())
+      .then(data => {
+          document.getElementById("output").innerHTML = data.response;
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+# Node.js dependencies
+node_modules/
+
+# npm package lock file
+package-lock.json
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+lib-cov/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+.grunt
+
+# node-waf configuration
+.lock-wscript
+
+build/Release
+
+# Dependency directories
+bin/
+obj/
+- /vendor/
++ /vendor/
+- .lock-wscript
++ .lock-wscript
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable files
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
