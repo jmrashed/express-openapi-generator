@@ -3,21 +3,26 @@ const asyncHandler = require("express-async-handler");
 
 const { env } = require("../config/env");
 const route = require("../routes/v1");
-const HttpResponse = require("../core/response/httpResponse");
 
 /**
  * match id is a number
  */
 
-route.get(
-  "/openai",
+route.get("/generator", (req, res) => {
+  res.render("index", { message: "Hello, EJS!" });
+});
+
+route.post(
+  "/generator",
   asyncHandler(async function getMatches(req, res) {
+    console.log(env.OPENAI_KEY);
     try {
       const openai = new OpenAI({
         apiKey: env.OPENAI_KEY,
       });
 
       const { title } = req.body;
+
       if (title) {
         const chatCompletion = await openai.chat.completions.create({
           messages: [

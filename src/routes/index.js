@@ -10,6 +10,7 @@ route.get('/', function index(req, res) {
         message: 'express-openapi-generator',
         maintaner: 'jmrashed <https://github.com/jmrashed>',
         source: 'https://github.com/jmrashed/express-openapi-generator',
+        generatorView: "/v1/generator"
     };
 
     const httpResponse = HttpResponse.get(responseData);
