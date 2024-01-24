@@ -2,10 +2,13 @@
   "name": "express-openapi-generator",
   "version": "1.0.0",
   "description": "An unopinionated OpenAPI framework for express",
+  "engines": {
+    "node": "18.x"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "npx nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,11 +26,19 @@
   },
   "homepage": "https://github.com/jmrashed/express-openapi-generator#readme",
   "dependencies": {
+    "colorette": "^2.0.20",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
     "express-handlebars": "^7.1.2",
+    "express-rate-limit": "^7.1.5",
+    "express-useragent": "^1.0.15",
+    "helmet": "^7.1.0",
+    "hpp": "^0.2.3",
     "openai": "^4.25.0",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "request-ip": "^3.3.0"
   }
 }

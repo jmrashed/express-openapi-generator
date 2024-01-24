@@ -25,6 +25,7 @@ app.post('/', async (req, res) => {
     }
     return res.json({ response: 'emplty title' });
 });
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
